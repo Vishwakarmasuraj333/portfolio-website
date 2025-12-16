@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            transition: all 0.3s ease;
+        }
+
+        header {
+            display: flex;
+            background-color: rgb(128, 128, 128);
+            color: white;
+            align-items: center;
+            justify-content: space-between;
+            padding: 30px 40px;
+            z-index: 100;
+
+            cursor: pointer;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 35px;
+            color: yellow;
+            text-shadow: 0 5px 10px white;
+            font-weight: bold;
+            animation: raa 3s infinite;
+        }
+
+        @keyframes raa {
+            0% {
+                color: red;
+            }
+
+            50% {
+                color: aqua;
+            }
+
+            70% {
+                color: darkorchid;
+            }
+
+            100% {
+                color: deeppink;
+            }
+
+
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            font-size: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            text-transform: capitalize;
+
+        }
+
+        nav ul li a:hover {
+            color: yellow;
+        }
+
+        .humburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+
+        }
+
+        .humburger.active span:nth-child(2) {
+            opacity: 0;
+
+        }
+
+        .humburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+
+        .humburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            margin-left: 150px;
+            background-color: gray;
+            padding: 10px;
+            border-radius: 5px;
+
+        }
+
+        .humburger span {
+            width: 35px;
+            height: 5px;
+            background-color: yellow;
+            border-radius: 5px;
+
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                top: 85px;
+                left: -100%;
+                background-color: #8080805f;
+                width: 100%;
+                backdrop-filter: blur(70px);
+                height: auto;
+                z-index: 10;
+                position: absolute;
+                padding: 30px;
+                align-items: center;
+                text-align: center;
+                transition: all 0.3s ease;
+                border-top: 4px solid yellow;
+            }
+
+            .humburger {
+                display: flex;
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+
+            nav ul li {
+                border-bottom: 2px solid black;
+                width: 100%;
+                transition: all 0.3s ease;
+                padding: 25px;
+            }
+
+            nav ul li:hover {
+                background: linear-gradient(to left, aqua, red);
+                color: black;
+                border: 2px solid purple;
+                padding: 20px 30px;
+                border-radius: 12px;
+            }
+        }
+
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: #111;
+            color: #fff;
+        }
+
+        .banner-container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .banner-img img {
+            width: 360px;
+            height: 360px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 4px solid aqua;
+            align-items: center;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 12px yellow;
+
+        }
+
+
+        .banner-text {
+            font-size: 18px;
+            line-height: 1.7;
+            padding-top: 40px;
+            margin-bottom: 25px;
+            letter-spacing: 1.2px;
+        }
+
+        .highlight {
+            color: rgb(248, 248, 105);
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .banner-btn {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        /* Common Button */
+        .btn {
+            padding: 12px 25px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: 0.3s;
+            box-shadow: 0 4px 8px yellow;
+
+            /* 🔥 MISSING PART (FIX) */
+            background: linear-gradient(to right, red, aqua);
+            color: #000;
+            border: 2px solid green;
+        }
+
+        /* Hover */
+        .btn:hover {
+            background: linear-gradient(to left, aqua, red);
+            color: #eaf343;
+        }
+
+        .hire {
+            background: yellow;
+            color: black;
+        }
+
+        .resume {
+            background: transparent;
+            color: white;
+            border: 2px solid aqua;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+
+        #about {
+            padding: 80px 40px;
+            text-align: center;
+            background: #111;
+            color: white;
+        }
+
+        #about h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        #about h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #typewriter {
+            color: red;
+            border-right: 3px solid red;
+            padding-right: 6px;
+        }
+
+        #about p {
+            max-width: 800px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        #skills {
+            padding: 60px 40px;
+            background: #f5f5f5;
+            font-size: 20px;
+
+        }
+
+        .skill-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .skills {
+            max-width: 700px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .skill {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .skill span {
+            width: 100px;
+            font-weight: bold;
+        }
+
+        progress {
+            width: 100%;
+            height: 18px;
+        }
+
+        /* Chrome / Edge */
+        progress::-webkit-progress-bar {
+            background: #ddd;
+            border-radius: 10px;
+        }
+
+        progress::-webkit-progress-value {
+            background: linear-gradient(90deg, red, orange);
+            border-radius: 10px;
+        }
+
+        /* Firefox */
+        progress::-moz-progress-bar {
+            background: linear-gradient(90deg, red, orange);
+        }
+
+        /* Icon colors */
+        .html {
+            color: #e34c26;
+        }
+
+        .css {
+            color: #264de4;
+        }
+
+        .js {
+            color: #f7df1e;
+        }
+
+        .react {
+            color: #61dafb;
+        }
+
+        .projects {
+            padding: 60px 40px;
+            background: #f5f5f5;
+            text-align: center;
+        }
+
+        .projects h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        /* Overlay text */
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: 0.4s ease;
+        }
+
+        .overlay h3 {
+            color: white;
+            font-size: 22px;
+            transform: translateY(20px);
+            transition: 0.4s ease;
+        }
+
+        /* Hover effect */
+        .card:hover img {
+            transform: scale(1.1);
+        }
+
+        .card:hover .overlay {
+            opacity: 1;
+        }
+
+        .card:hover .overlay h3 {
+            transform: translateY(0);
+        }
+
+        #login {
+            padding: 80px 40px;
+            background: #f5f5f5;
+            text-align: center;
+        }
+
+        .login-form {
+            max-width: 350px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .login-form input {
+            padding: 12px;
+            font-size: 16px;
+        }
+
+        .login-form button {
+            padding: 12px;
+            background: aqua;
+            color: black;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 50px;
+        }
+
+        #contact {
+            padding: 90px 40px;
+            background: #111;
+            color: white;
+            text-align: center;
+        }
+
+        h2 {
+            padding: 30px;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 12px;
+            font-size: 16px;
+        }
+
+        .contact-form button {
+            padding: 12px;
+            background: aqua;
+            color: black;
+            border: none;
+            cursor: pointer;
+        }
+
+        footer {
+            padding: 30px;
+            background: black;
+            color: white;
+            text-align: center;
+        }
+
+        footer .socials {
+            margin-top: 10px;
+        }
+
+        footer a {
+            color: yellow;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        #about {
+            padding: 80px 40px;
+            background: #111;
+            color: white;
+        }
+
+        .about-container {
+            max-width: 1000px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .about-img img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid yellow;
+            box-shadow: 0 5px 10px red;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .about-text h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        #typewriter {
+            color: yellow;
+            border-right: 3px solid aqua;
+            padding-right: 6px;
+        }
+
+        .about-text p {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .about-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .banner-img {
+                flex-direction: column;
+                padding-right: 70px;
+            }
+        }
+
+
+
+        /* Tablet */
+        @media (max-width: 992px) {
+            header {
+                padding: 20px;
+            }
+
+            .banner-container {
+                padding: 20px;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .banner-img img {
+                width: 350px;
+                height: 350px;
+                margin-left: 70px;
+            }
+
+            .banner-text {
+                font-size: 16px;
+                padding-top: 20px;
+            }
+
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-container {
+                gap: 20px;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            header {
+                flex-wrap: wrap;
+            }
+
+            .logo {
+                font-size: 28px;
+            }
+
+            .banner-img img {
+                width: 220px;
+                height: 220px;
+            }
+
+            .banner-text {
+                font-size: 15px;
+            }
+
+            .banner-btn {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-img img {
+                width: 180px;
+                height: 180px;
+            }
+
+            .about-text h2 {
+                font-size: 28px;
+            }
+
+            .about-text h3 {
+                font-size: 20px;
+            }
+
+            .skills {
+                padding: 0 10px;
+                font-size: 40px;
+            }
+
+            .skill span {
+                width: 80px;
+                font-size: 14px;
+            }
+
+            .login-form,
+            .contact-form {
+                width: 100%;
+            }
+
+            .social-links {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+        }
+
+
+
+        .social-links {
+            font-size: 25px;
+            padding: 50px;
+            color: aqua;
+            justify-content: center;
+            cursor: pointer;
+            display: flex;
+            gap: 20px;
+
+        }
+
+        /* Fade Left & Right Animation */
+        .fade-left,
+        .fade-right {
+            opacity: 0;
+            transform: translateX(0);
+            transition: all 1s ease-out;
+        }
+
+        .fade-left.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fade-left {
+            transform: translateX(-50px);
+        }
+
+        .fade-right.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .fade-right {
+            transform: translateX(50px);
+        }
+
+
+        .social-links a {
+            font-size: 28px;
+            color: yellow;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: red;
+            transform: scale(1.2);
+        }
+
+        #topBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 12px 16px;
+            font-size: 20px;
+            border: none;
+            border-radius: 50%;
+            background: red;
+            color: white;
+            cursor: pointer;
+            display: none;
+            transition: 0.3s;
+        }
+
+        #topBtn:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">Suraj</div>
+        <div id="humburger" class="humburger">
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+        <nav id="navlinks">
+            <ul>
+                <li><a href="#home">home</a></li>
+                <li><a href="#projects">projects</a></li>
+                <li><a href="#about">about</a></li>
+                <li><a href="#skills">skills</a></li>
+                <li><a href="#logins">login</a></li>
+                <li><a href="#contacts">contacts</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="banner-container ">
+
+            <div class="banner-img fade-right">
+                <img src="c:\Users\imdee\OneDrive\Pictures\ss.jpeg" alt="Suraj">
+            </div>
+
+            <div class="banner-text">
+                <p class=" fade-right"> I am a <span class="highlight">Frontend Developer</span> with a strong passion
+                    for
+                    creating modern, responsive, and user-friendly web interfaces. I specialize in HTML, CSS,
+                    and JavaScript, and I enjoy turning creative designs into functional websites.</p>
+            </div>
+
+            <div class="banner-btn fade-left">
+                <a href="#contacts" class="btn hire">Hire Me</a>
+                <a href="resume.pdf" class="btn resume" download>Resume</a>
+            </div>
+
+            <div class="social-links fade-right">
+                <a href="https://www.facebook.com/share/16a5Gdy654/" target="_blank">
+                    <i class="fa-brands fa-square-facebook"></i>
+                </a>
+
+                <a href="https://www.instagram.com/surajvishwakarma_bittu" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="https://github.com/Vishwakarmasuraj333" target="_blank">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+
+                <a href="https://twitter.com" target="_blank">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+
+                <a href="https://snapchat.com" target="_blank">
+                    <i class="fa-brands fa-snapchat"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+    <section class="projects" id="projects">
+        <h2>My Projects</h2>
+
+        <div class="card-grid fade-left">
+            <div class="card">
+                <img src="https://www.unsell.design/wp-content/uploads/2023/08/633617353_Template-Featured-image.jpg"
+                    alt="">
+                <div class="overlay">
+                    <h3>Portfolio Website</h3>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://tse3.mm.bing.net/th/id/OIP.vHemln1HhAHf1Qr4ctfvOAHaE7?cb=ucfimg2&ucfimg=1&w=1400&h=933&rs=1&pid=ImgDetMain&o=7&rm=3"
+                    alt="">
+                <div class="overlay">
+                    <h3>E-commerce Store</h3>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://img.freepik.com/premium-vector/landing-page-website-background-template-design_7505-569.jpg?semt=ais_hybrid"
+                    alt="">
+                <div class="overlay">
+                    <h3>Landing Page</h3>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://tse1.mm.bing.net/th/id/OIP.hpQAwaeai3eq88wOv7H-JAHaEi?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3"
+                    alt="">
+                <div class="overlay">
+                    <h3>Restaurant Website</h3>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231" alt="">
+                <div class="overlay">
+                    <h3>Login UI</h3>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://colorlib.com/wp/wp-content/uploads/sites/2/nalika-simple-free-bootstrap-admin-dashboard.jpg"
+                    alt="">
+                <div class="overlay">
+                    <h3>Admin Dashboard</h3>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://tse1.mm.bing.net/th/id/OIP.W81pUm4Cky36gAu4f7poQgHaFj?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3"
+                    alt="">
+                <div class="overlay">
+                    <h3>Weather App</h3>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://tse4.mm.bing.net/th/id/OIP.InNleyKj6lrElx81rN_UQwHaDb?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3"
+                    alt="">
+                <div class="overlay">
+                    <h3>Blog Website</h3>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://i.ytimg.com/vi/cHkN82X3KNU/maxresdefault.jpg" alt="">
+                <div class="overlay">
+                    <h3>Calculator</h3>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://tse4.mm.bing.net/th/id/OIP.rXZBUnN0W2bRo2OBO3EXrQHaEU?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3"
+                    alt="">
+                <div class="overlay">
+                    <h3>todo-app</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="about">
+        <div class="about-container fade-right">
+
+            <div class="about-img">
+                <img src="https://avatars.githubusercontent.com/u/212504628?s=400&u=2e48c57bcb936f662429599802ffa422b1871452&v=4"
+                    alt="Suraj">
+            </div>
+
+            <div class="about-text">
+                <h2>About Me</h2>
+
+                <h3>
+                    I am a <span id="typewriter"></span>
+                </h3>
+
+                <p>
+                    I am a passionate Frontend Developer focused on building modern,
+                    responsive, and user-friendly websites. I love turning ideas into
+                    reality using clean code, animations, and creative layouts.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section id="skills">
+        <h2 class="skill-title fade-right">My Skills</h2>
+
+        <div class="skills fade-left">
+            <div class="skill">
+                <i class="fa-brands fa-html5 html"></i>
+                <span>HTML</span>
+                <progress value="90" max="100"></progress>
+            </div>
+
+            <div class="skill">
+                <i class="fa-brands fa-css3-alt css"></i>
+                <span>CSS</span>
+                <progress value="85" max="100"></progress>
+            </div>
+
+            <div class="skill">
+                <i class="fa-brands fa-js js"></i>
+                <span>JavaScript</span>
+                <progress value="75" max="100"></progress>
+            </div>
+
+            <div class="skill">
+                <i class="fa-brands fa-react react"></i>
+                <span>React</span>
+                <progress value="70" max="100"></progress>
+            </div>
+            <div class="skill">
+                <i class="fa-brands fa-github"></i>
+                <span>Github</span>
+                <progress value="60" max="100"></progress>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="logins ">
+        <h2 style="text-align: center;">Login</h2>
+
+        <form class="login-form fade-right">
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <button>Login</button>
+        </form>
+    </section>
+
+    <section id="contacts fade-right">
+        <h2 style="text-align: center;">Contact Me</h2>
+
+        <form class="contact-form fade-left" style="margin-bottom: 90px; padding: 60px 50px;">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message"></textarea>
+            <button>Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2025 Suraj | Frontend Developer</p>
+        <div class="socials">
+            <a href="#">GitHub</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Instagram</a>
+            <button id="topBtn">👆</button>
+
+        </div>
+
+    </footer>
+
+
+    <script>
+
+        let hum = document.getElementById("humburger");
+        let menu = document.querySelector("#navlinks ul");
+        const closed = document.querySelectorAll("#navlinks ul");
+
+        hum.addEventListener("click", () => {
+            menu.classList.toggle("active");
+            hum.classList.toggle("active");
+        });
+
+        closed.forEach(item => {
+            item.addEventListener("click", () => {
+                menu.classList.remove("active");
+                hum.classList.remove("active");
+            });
+        });
+
+        const words = [
+            "Frontend Developer",
+            "Web Designer",
+            "UI/UX Enthusiast",
+            "JavaScript Developer"
+        ];
+
+        let i = 0;
+        let j = 0;
+        let current = "";
+        let deleting = false;
+
+        function typeEffect() {
+            if (!deleting) {
+                current = words[i].slice(0, ++j);
+            } else {
+                current = words[i].slice(0, --j);
+            }
+
+            document.getElementById("typewriter").textContent = current;
+
+            if (!deleting && j === words[i].length) {
+                setTimeout(() => deleting = true, 1200);
+            }
+
+            if (deleting && j === 0) {
+                deleting = false;
+                i = (i + 1) % words.length;
+            }
+
+            setTimeout(typeEffect, deleting ? 60 : 100);
+        }
+
+        typeEffect();
+
+        const topBtn = document.getElementById("topBtn");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                topBtn.style.display = "block";
+            } else {
+                topBtn.style.display = "none";
+            }
+        });
+
+        topBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+        // Fade Left/Right on Scroll
+        function fadeOnScroll() {
+            const fadeElements = document.querySelectorAll('.fade-left, .fade-right');
+
+            fadeElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    el.classList.add('show');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', fadeOnScroll);
+        window.addEventListener('load', fadeOnScroll); // Page load pe bhi
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                document.querySelector(link.getAttribute('href'))
+                    .scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+    </script>
+
+
+
+</body>
+
+</html>
