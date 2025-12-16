@@ -5,7 +5,7 @@ This website showcases projects, skills, experience, and contact information wit
 
 🚀 Live Preview
 
-👉 (Optional) Add your live link here
+link here
 
 https://vishwakarmasuraj333.github.io/portfolio-website/
 
